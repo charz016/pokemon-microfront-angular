@@ -4,3 +4,9 @@ body {
   margin: 0;
   padding: 0;
 }
+
+
+mat-toolbar {
+  z-index: 999;
+  position: fixed;
+}

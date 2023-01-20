@@ -1,10 +1,18 @@
 <mat-toolbar color="primary">
-    <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="" class="navbar-image" routerLink="/" style="cursor: pointer;" />
+    <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="" class="navbar-image"
+        routerLink="/" style="cursor: pointer;" />
 
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="cursor: pointer;" routerLink="pokemon-box">
-        <mat-icon>favorite</mat-icon>
-    </button>
+    <div class="container">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"
+            style="cursor: pointer;" routerLink="pokemon-box">
+            <mat-icon>favorite</mat-icon>
+        </button>
+
+        <span class="cart__count">
+            {{ commonsLibService.channelPayment$ | async }}
+        </span>
+    </div>
 </mat-toolbar>
 
 

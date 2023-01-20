@@ -1,1 +1,42 @@
-<p>pokemon works!</p>
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div style="padding: 20px;" *ngIf="!loading">
+
+    <section class="section-sub-menu" fxLayout="row wrap" fxLayoutAlign="stretch center">
+
+        <div fxLayout="column" *ngFor="let item of list">
+
+            <mat-card class="card" [routerLink]="item.path">
+
+                <mat-card-header>
+                    <mat-card-title> {{item.name |uppercase }} </mat-card-title>
+                    <mat-card-subtitle> #{{item.id}} </mat-card-subtitle>
+                </mat-card-header>
+
+                <img [src]="item.sprites.other.dream_world.front_default" class="card-photo">
+
+                <div style="margin: 10px;" fxLayoutAlign="center center">
+                    <button mat-mini-fab color="warn" aria-label="Example icon button with a home icon"
+                        (click)="clickCard(item)">
+                        <mat-icon>inbox</mat-icon>
+                    </button>
+                </div>
+
+                <mat-card-content style="display: flex;">
+                    <div *ngFor="let type of item.types">
+                        <div class="pokemon-type">
+                            <div [ngClass]="type.type.name">{{type.type.name}}</div>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </section>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons (page)="onChangePage($event)" [length]="total"
+        [pageSize]="request.size" [pageIndex]="request.page - 1">
+    </mat-paginator>
+
+</div>

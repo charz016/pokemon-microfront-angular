@@ -11,7 +11,7 @@ export class CommonsLibService {
   _channelSource = new BehaviorSubject<number>(0);
   channelPayment$ = this._channelSource.asObservable();
 
-  sendData(product: ICommonProduct): void {
+  sendData(product: any): void {
     this._products.push(product);
     localStorage.setItem('products', JSON.stringify(this._products));
     this._channelSource.next(this._products.length);

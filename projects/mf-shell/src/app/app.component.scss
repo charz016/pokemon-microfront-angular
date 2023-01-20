@@ -5,3 +5,29 @@
 .navbar-image {
   width: 120px;
 }
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  .cart {
+  
+
+    &__count {
+      position: absolute;
+      background: red;
+      color: white;
+      padding: 5px;
+      border-radius: 50%;
+      font-weight: bold;
+      top: -11px;
+      width: 15px;
+      text-align: center;
+      width: 20px;
+      height: 30px;
+    }
+  }
+}
