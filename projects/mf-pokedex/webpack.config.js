@@ -1,15 +1,22 @@
-const { shareAll, withModuleFederationPlugin } = require('@angular-architects/module-federation/webpack');
+const {
+  shareAll,
+  withModuleFederationPlugin,
+} = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-
-  name: 'mf-pokedex',
+  name: "mf-pokedex",
 
   exposes: {
-    './Component': './projects/mf-pokedex/src/app/app.component.ts',
+    "./PokedexModule": "./projects/mf-pokedex/src/app/modules/pokemon/pokemon.module.ts",
   },
 
   shared: {
-    ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+    ...shareAll({
+      singleton: true,
+      strictVersion: true,
+      requiredVersion: "auto",
+    }),
   },
 
+  sharedMappings: ["@commons-lib"],
 });

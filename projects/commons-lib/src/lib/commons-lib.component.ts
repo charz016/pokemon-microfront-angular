@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'lib-commons-lib',
@@ -10,6 +10,11 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class CommonsLibComponent {
+export class CommonsLibComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }
