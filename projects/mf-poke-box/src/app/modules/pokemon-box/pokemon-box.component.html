@@ -2,11 +2,14 @@
 
     <div style="padding: 20px;">
 
-        <div fxLayout="row wrap" fxLayoutAlign="stretch center">
+        <div fxLayout="row wrap" fxLayoutAlign="stretch center" cdkDropListGroup>
 
-            <div fxLayout="column" *ngFor="let item of listCatch; let i = index">
+            <div fxLayout="column" *ngFor="let item of listCatch; let i = index" cdkDropList
+                cdkDropListOrientation="horizontal" [cdkDropListData]="{item:item,index:i}"
+                (cdkDropListDropped)="drop($event)">
 
-                <mat-card class="card">
+                <mat-card class="card" cdkDrag>
+                    <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
 
                     <mat-card-header>
                         <div fxLayout="row" fxLayoutAlign="end center">
