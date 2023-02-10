@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonsLibService } from '@commons-lib';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mf-poke-box';
+
+  list$ = this.commonLibs
+
+  constructor(private commonLibs:CommonsLibService){
+
+  }
 }

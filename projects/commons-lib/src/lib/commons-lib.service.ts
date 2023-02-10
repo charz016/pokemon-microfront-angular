@@ -6,14 +6,22 @@ import { ICommonProduct } from './models/product.interface';
   providedIn: 'root',
 })
 export class CommonsLibService {
-  private _products: ICommonProduct[] = [];
+  private pokeList: any[] = [];
+  pokedex$: BehaviorSubject<any> = new BehaviorSubject(null);
+  lengthPokedex$: BehaviorSubject<any> = new BehaviorSubject(0);
 
-  _channelSource = new BehaviorSubject<number>(0);
-  channelPayment$ = this._channelSource.asObservable();
+  savePokemon(pokemon: any[]): void {
+    this.pokeList.push(pokemon);
+    this.lengthPokedex$.next(this.pokeList.length);
+    this.pokedex$.next(this.pokeList);
+  }
+  deletePokemon(index: number) {
+    this.pokeList.splice(index, 1);
+    this.pokedex$.next(this.pokeList);
+    this.lengthPokedex$.next(this.pokeList.length);
+  }
 
-  sendData(product: any): void {
-    this._products.push(product);
-    localStorage.setItem('products', JSON.stringify(this._products));
-    this._channelSource.next(this._products.length);
+  clearPokemon(): void {
+    this.pokedex$.next([]);
   }
 }

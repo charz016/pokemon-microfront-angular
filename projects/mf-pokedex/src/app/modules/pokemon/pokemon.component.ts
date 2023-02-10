@@ -64,6 +64,6 @@ export class PokemonComponent implements OnInit {
   }
 
   clickCard(item: any): void {
-    this.commonsLibService.sendData(item);
+    this.commonsLibService.savePokemon(item);
   }
 }

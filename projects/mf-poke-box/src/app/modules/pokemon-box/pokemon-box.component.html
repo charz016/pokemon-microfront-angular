@@ -1,1 +1,35 @@
-<p>pokemon-box works!</p>
+<section class="section" fxLayout="column" fxLayoutAlign="center center">
+
+    <div style="padding: 20px;">
+
+        <div fxLayout="row wrap" fxLayoutAlign="stretch center">
+
+            <div fxLayout="column" *ngFor="let item of listCatch; let i = index">
+
+                <mat-card class="card">
+
+                    <mat-card-header>
+                        <div fxLayout="row" fxLayoutAlign="end center">
+                            <mat-card-title> {{item.name |uppercase }} </mat-card-title>
+                            <button mat-icon-button>
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </div>
+                    </mat-card-header>
+
+                    <img [src]="item.sprites.front_default" class="card-photo">
+
+                    <mat-card-content style="display: flex;">
+                        <div *ngFor="let type of item.types">
+                            <div class="pokemon-type">
+                                <div [ngClass]="type.type.name">{{type.type.name}}</div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+
+                </mat-card>
+            </div>
+        </div>
+
+    </div>
+</section>
